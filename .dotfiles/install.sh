@@ -13,4 +13,7 @@ function dotfiles {
    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
+dotfiles restore --staged .
+dotfiles restore .
+
 dotfiles config status.showUntrackedFiles no
