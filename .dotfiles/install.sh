@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
+export DOTFILES_HOME=$HOME/.dotfiles
+
+if [ -e "$DOTFILES_HOME" ]; then
+  backupFilename="$DOTFILES_HOME.$(date +%F).backup"
+  echo "Backing up existing $DOTFILES_HOME to $backupFilename"
+  mv "$DOTFILES_HOME" "$backupFilename"
+fi
+
 git clone --bare https://github.com/jwhitaker/dotfiles.git $HOME/.dotfiles
 function dotfiles {
    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
-mkdir -p .config-backup
-dotfiles checkout
-if [ $? = 0 ]; then
-  echo "Checked out config.";
-  else
-    echo "Backing up pre-existing dot files.";
-    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
-fi;
-dotfiles checkout
+
 dotfiles config status.showUntrackedFiles no
