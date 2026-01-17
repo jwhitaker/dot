@@ -1,0 +1,7 @@
+alias ggst='git status'
+alias ggpl='git pull'
+alias ggps='git push'
+alias ggco='git checkout'
+alias ggcm='git commit -m'
+alias ggbr='git branch'
+alias gglo='git log --oneline --graph --decorate'

@@ -1,0 +1,1 @@
+export alias dps='docker ps'
