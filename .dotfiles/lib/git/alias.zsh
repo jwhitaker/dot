@@ -5,3 +5,5 @@ alias ggco='git checkout'
 alias ggcm='git commit -m'
 alias ggbr='git branch'
 alias gglo='git log --oneline --graph --decorate'
+
+
